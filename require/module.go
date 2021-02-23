@@ -146,7 +146,7 @@ func (r *Registry) getCompiledSource(p string) (*js.Program, error) {
 		}
 
 		source := "(function(exports, require, module) {" + s + "\n})"
-		parsed, err := js.Parse(p, source, parser.WithSourceMapLoader(r.srcLoader))
+		parsed, err := js.Parse(p, source, parser.WithDisableSourceMaps)
 		if err != nil {
 			return nil, err
 		}
